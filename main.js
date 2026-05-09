@@ -1,6 +1,6 @@
 // Teachable Machine Model URL
 // 사용자가 제공한 정확한 모델 URL을 사용합니다.
-const URL = "https://teachablemachine.withgoogle.com/models/xjglajpn/"; 
+const URL = "https://teachablemachine.withgoogle.com/models/cryxcLDN-/"; 
 
 let model, maxPredictions;
 let isModelLoading = false;
