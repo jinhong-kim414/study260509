@@ -212,3 +212,51 @@ footer {
         display: none;
     }
 }
+
+/* Partnership Form */
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: var(--card-shadow);
+}
+
+.contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+    color: var(--hyundai-blue);
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--hyundai-light-blue);
+    box-shadow: 0 0 0 3px rgba(0, 170, 210, 0.1);
+}
+
+.w-100 {
+    width: 100%;
+    cursor: pointer;
+    border: none;
+    font-size: 1.1rem;
+}

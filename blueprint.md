@@ -5,33 +5,29 @@ A comprehensive, interactive educational platform focused on Hyundai Motor Compa
 
 ## Project Outline & Features
 ### Core Structure
-- **index.html**: Main hub with category navigation (Electronics, Braking, Powertrain, etc.).
-- **main.js**: Interactive logic for content loading, animations, and video playback.
-- **style.css**: Modern, premium UI reflecting Hyundai's brand identity (Clean, high-tech, responsive).
+- **index.html**: Main hub with category navigation and partnership form.
+- **main.js**: Interactive logic for content loading, animations, and smooth scrolling.
+- **style.css**: Modern, premium UI reflecting Hyundai's brand identity.
 
 ### Design & Styling
-- **Hyundai Identity**: Utilizing Hyundai's color palette (Deep Blue, Metallic Gray, White) and modern typography.
-- **Categorization**: Clear, intuitive navigation for different system groups.
-- **Interactive Cards**: Highlighting parts with hover effects and detailed descriptions.
-- **Video Integration**: Embedding functional demonstration videos for key components.
+- **Hyundai Identity**: Utilizing Hyundai's color palette (Deep Blue, Metallic Gray, White).
+- **Categorization**: Sections for Electronics, Braking, etc.
+- **Partnership Form**: Integrated with Formspree for lead generation.
 
 ### Technical Stack
 - Native HTML5/CSS3/JS.
-- Web Components for reusable part cards.
-- Container Queries for responsive part grids.
+- Formspree for form handling.
 
-## Current Task: Transform to Car Parts Site
+## Current Task: Add Partnership Form
 ### Plan & Steps
-1. **Design Strategy**: Define the categories (Electronics, Braking, Powertrain, Chassis) and select key Hyundai technologies (e.g., E-GMP for electronics, Regenerative Braking).
-2. **Implementation - HTML**: Restructure index.html with a hero section and category navigation.
-3. **Implementation - CSS**: Apply modern styling with cards, shadows, and glassmorphism effects.
-4. **Implementation - JS**: Add interactive transitions between categories and video modal/embed logic.
-5. **Validation**: Ensure mobile responsiveness and correct video loading.
+1. **HTML Update**: Add a "Partnership Inquiry" section with a form targeting the Formspree endpoint.
+2. **CSS Update**: Style the form with modern inputs, buttons, and a professional layout.
+3. **JS Update**: (Optional) Add basic form validation or success message handling.
+4. **Validation**: Ensure the form is responsive and links correctly to the provided endpoint.
 
 ### Status
 - [x] GitHub Remote Added
-- [x] Initial Code Pushed
-- [ ] Hyundai Brand Design Applied
-- [ ] Category Navigation Implemented
-- [ ] Detailed Part Content Added
-- [ ] Video Functionality Integrated
+- [x] Hyundai Brand Design Applied
+- [x] Category Navigation Implemented
+- [x] Video Functionality Integrated
+- [ ] Partnership Form Added
