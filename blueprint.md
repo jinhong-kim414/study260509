@@ -1,35 +1,37 @@
-# Project Blueprint: Study 260509
+# Project Blueprint: Hyundai Car Parts Learning Center
 
 ## Project Overview
-This project is a modern web application prototype built using framework-less HTML, CSS, and JavaScript. It serves as a study environment for exploring modern web standards (Baseline), Web Components, and advanced web technologies like Three.js and WebAssembly.
+A comprehensive, interactive educational platform focused on Hyundai Motor Company's automotive technology. This site aims to help users learn about various car parts through detailed categorization, high-quality visuals, and functional demonstrations.
 
 ## Project Outline & Features
 ### Core Structure
-- **index.html**: Main entry point with basic structure and "Hello World" content.
-- **main.js**: Placeholder for JavaScript logic, currently contains a simple console log.
-- **style.css**: Placeholder for CSS styling.
-- **GEMINI.md**: AI Development Guidelines for the project.
+- **index.html**: Main hub with category navigation (Electronics, Braking, Powertrain, etc.).
+- **main.js**: Interactive logic for content loading, animations, and video playback.
+- **style.css**: Modern, premium UI reflecting Hyundai's brand identity (Clean, high-tech, responsive).
 
 ### Design & Styling
-- Minimalist "Hello World" layout.
-- Linked CSS for future styling.
+- **Hyundai Identity**: Utilizing Hyundai's color palette (Deep Blue, Metallic Gray, White) and modern typography.
+- **Categorization**: Clear, intuitive navigation for different system groups.
+- **Interactive Cards**: Highlighting parts with hover effects and detailed descriptions.
+- **Video Integration**: Embedding functional demonstration videos for key components.
 
 ### Technical Stack
-- Native HTML5, CSS3, and ES Modules.
-- Configured for Firebase Studio with .idx/ and .vscode/ settings.
-- Version control with Git, linked to GitHub.
+- Native HTML5/CSS3/JS.
+- Web Components for reusable part cards.
+- Container Queries for responsive part grids.
 
-## Current Task: Linking to GitHub
+## Current Task: Transform to Car Parts Site
 ### Plan & Steps
-1. **Research**: Verify local git status and current remotes.
-2. **Setup**: Add the remote repository https://github.com/jinhong-kim414/study260509.git.
-3. **Execution**:
-    - Stage existing changes (including deletion of placeholder README.md).
-    - Commit the initial project structure.
-    - Push the main branch to the GitHub remote.
-4. **Documentation**: Create this blueprint.md to track project progress.
+1. **Design Strategy**: Define the categories (Electronics, Braking, Powertrain, Chassis) and select key Hyundai technologies (e.g., E-GMP for electronics, Regenerative Braking).
+2. **Implementation - HTML**: Restructure index.html with a hero section and category navigation.
+3. **Implementation - CSS**: Apply modern styling with cards, shadows, and glassmorphism effects.
+4. **Implementation - JS**: Add interactive transitions between categories and video modal/embed logic.
+5. **Validation**: Ensure mobile responsiveness and correct video loading.
 
 ### Status
 - [x] GitHub Remote Added
 - [x] Initial Code Pushed
-- [x] Blueprint Created
+- [ ] Hyundai Brand Design Applied
+- [ ] Category Navigation Implemented
+- [ ] Detailed Part Content Added
+- [ ] Video Functionality Integrated

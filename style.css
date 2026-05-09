@@ -1,1 +1,214 @@
-/* Add styles here */
+:root {
+    --hyundai-blue: #002c5f;
+    --hyundai-light-blue: #00aad2;
+    --hyundai-sand: #e4dcd3;
+    --text-dark: #1c1c1c;
+    --text-light: #f4f4f4;
+    --bg-white: #ffffff;
+    --bg-gray: #f8f9fa;
+    --card-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--bg-white);
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--hyundai-blue);
+    letter-spacing: 1px;
+}
+
+.logo span {
+    font-weight: 300;
+    color: var(--text-dark);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 400;
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--hyundai-light-blue);
+}
+
+/* Hero Section */
+.hero {
+    height: 80vh;
+    background: linear-gradient(rgba(0,44,95,0.7), rgba(0,44,95,0.7)), url('https://images.unsplash.com/photo-1542362567-b058c02b9ac1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    margin-top: 60px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 15px 40px;
+    background-color: var(--hyundai-light-blue);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 700;
+    transition: var(--transition);
+}
+
+.btn-primary:hover {
+    background-color: #008eb0;
+    transform: translateY(-3px);
+}
+
+/* Category Sections */
+.category-section {
+    padding: 100px 0;
+}
+
+.dark-bg {
+    background-color: var(--bg-gray);
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: var(--hyundai-blue);
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.section-desc {
+    text-align: center;
+    margin-bottom: 60px;
+    color: #666;
+    font-size: 1.1rem;
+}
+
+/* Parts Grid */
+.parts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 40px;
+}
+
+.part-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transition: var(--transition);
+}
+
+.part-card:hover {
+    transform: translateY(-10px);
+}
+
+.part-info {
+    padding: 30px;
+}
+
+.part-info h3 {
+    color: var(--hyundai-blue);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.part-info p {
+    margin-bottom: 20px;
+    color: #444;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #000;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Footer */
+footer {
+    padding: 50px 0;
+    background-color: var(--hyundai-blue);
+    color: white;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    .parts-grid {
+        grid-template-columns: 1fr;
+    }
+    .nav-links {
+        display: none;
+    }
+}
