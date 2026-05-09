@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>AI 상 테스트 | 강아지상 vs 고양이상</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,9 +17,9 @@
         <nav class="navbar">
             <div class="logo">AI <span>FACE TEST</span></div>
             <ul class="nav-links">
-                <li><a href="#test">테스트하기</a></li>
-                <li><a href="#partnership">제휴문의</a></li>
-                <li><a href="#comments">커뮤니티</a></li>
+                <li><a href="#test">테스트</a></li>
+                <li><a href="#partnership">제휴</a></li>
+                <li><a href="#comments">댓글</a></li>
             </ul>
         </nav>
     </header>
@@ -27,24 +27,32 @@
     <main>
         <section id="test" class="hero">
             <div class="hero-content">
-                <h1>나는 강아지상일까,<br>고양이상일까?</h1>
-                <p>인공지능이 분석하는 나의 얼굴상 테스트</p>
+                <h1>나는 어떤 상일까?</h1>
+                <p>AI가 분석하는 얼굴상 테스트</p>
                 
                 <div class="upload-container">
                     <div id="upload-area" class="upload-area">
                         <img id="preview-image" src="" alt="Preview" style="display: none;">
                         <div id="upload-label">
-                            <span class="upload-icon">📷</span>
-                            <p>사진을 업로드하거나 드래그하세요</p>
+                            <span class="upload-icon">📸</span>
+                            <p>사진을 터치하여 업로드</p>
                         </div>
                     </div>
                     <input type="file" id="image-input" accept="image/*" style="display: none;">
                     
-                    <div id="loading-spinner" style="display: none;">분석 중...</div>
+                    <div id="action-buttons" style="margin-top: 20px;">
+                        <button id="analyze-btn" class="btn-primary w-100" style="display: none;">분석하기</button>
+                    </div>
+
+                    <div id="loading-spinner" class="spinner-container" style="display: none;">
+                        <div class="spinner"></div>
+                        <p>AI 분석 중...</p>
+                    </div>
+
                     <div id="result-container" style="display: none;">
-                        <h2 id="result-message">분석 완료!</h2>
+                        <h2 id="result-message">분석 결과</h2>
                         <div id="label-container"></div>
-                        <button onclick="location.reload()" class="btn-secondary">다시 하기</button>
+                        <button onclick="location.reload()" class="btn-secondary w-100">다시 하기</button>
                     </div>
                 </div>
             </div>
@@ -52,21 +60,20 @@
 
         <section id="partnership" class="category-section">
             <div class="container">
-                <h2 class="section-title">제휴 문의 (Partnership)</h2>
-                <p class="section-desc">AI 페이스 테스트와 함께할 파트너를 기다립니다.</p>
+                <h2 class="section-title">제휴 문의</h2>
                 <div class="form-container">
                     <form action="https://formspree.io/f/xjglajpn" method="POST" class="contact-form">
                         <div class="form-group">
                             <label for="name">성함 / 업체명</label>
-                            <input type="text" id="name" name="name" required placeholder="예: 홍길동">
+                            <input type="text" id="name" name="name" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">이메일 주소</label>
-                            <input type="email" id="email" name="_replyto" required placeholder="example@domain.com">
+                            <label for="email">이메일</label>
+                            <input type="email" id="email" name="_replyto" required>
                         </div>
                         <div class="form-group">
-                            <label for="message">문의 내용</label>
-                            <textarea id="message" name="message" rows="5" required placeholder="내용을 입력해주세요."></textarea>
+                            <label for="message">내용</label>
+                            <textarea id="message" name="message" rows="4" required></textarea>
                         </div>
                         <button type="submit" class="btn-primary w-100">문의하기</button>
                     </form>
@@ -76,26 +83,24 @@
 
         <section id="comments" class="category-section dark-bg">
             <div class="container">
-                <h2 class="section-title">커뮤니티 (Comments)</h2>
+                <h2 class="section-title">커뮤니티</h2>
                 <div id="disqus_thread"></div>
-                <script>
-                    (function() { 
-                    var d = document, s = d.createElement("script");
-                    s.src = "https://study260509-2.disqus.com/embed.js";
-                    s.setAttribute("data-timestamp", +new Date());
-                    (d.head || d.body).appendChild(s);
-                    })();
-                </script>
             </div>
         </section>
     </main>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2026 AI Face Test. Created by Gemini CLI.</p>
-        </div>
+        <p>&copy; 2026 AI Face Test. Built for Mobile.</p>
     </footer>
 
     <script src="main.js"></script>
+    <script>
+        (function() { 
+        var d = document, s = d.createElement("script");
+        s.src = "https://study260509-2.disqus.com/embed.js";
+        s.setAttribute("data-timestamp", +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+    </script>
 </body>
 </html>
