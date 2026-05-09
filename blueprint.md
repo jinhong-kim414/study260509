@@ -1,35 +1,35 @@
-# Project Blueprint: Hyundai Car Parts Learning Center
+# Project Blueprint: AI Face Classifier (Dog vs. Cat)
 
 ## Project Overview
-A comprehensive, interactive educational platform focused on Hyundai Motor Company's automotive technology. This site aims to help users learn about various car parts through detailed categorization, high-quality visuals, and functional demonstrations.
+An interactive web application that uses a Teachable Machine AI model to classify whether an uploaded face resembles a dog or a cat.
 
 ## Project Outline & Features
 ### Core Structure
-- **index.html**: Main hub with category navigation, partnership form, and community comments.
-- **main.js**: Interactive logic for content loading, animations, and smooth scrolling.
-- **style.css**: Modern, premium UI reflecting Hyundai's brand identity.
+- **index.html**: Hero section with AI upload interface, followed by Partnership and Community sections.
+- **main.js**: Logic for image uploading, Teachable Machine model loading, and prediction display.
+- **style.css**: Playful and modern UI focused on the AI experience.
 
 ### Design & Styling
-- **Hyundai Identity**: Utilizing Hyundai's color palette (Deep Blue, Metallic Gray, White).
-- **Categorization**: Sections for Electronics, Braking, etc.
-- **Partnership Form**: Integrated with Formspree for lead generation.
-- **Community**: Disqus integration for user discussions.
+- **AI Interface**: Drag-and-drop or click-to-upload area.
+- **Results Display**: Visual feedback on the classification (Dog or Cat) with probability bars.
+- **Maintenance**: Preserving the Hyundai Tech Academy's structural integrity for Partnership and Comments.
 
 ### Technical Stack
-- Native HTML5/CSS3/JS.
-- Formspree for form handling.
-- Disqus for comment management.
+- Teachable Machine (TensorFlow.js).
+- Formspree for partnership.
+- Disqus for comments.
 
-## Current Task: Add Disqus Comments
+## Current Task: Pivot to AI Classifier
 ### Plan & Steps
-1. **HTML Update**: Add the Disqus thread container and script to a new "Comments" section.
-2. **Navigation Update**: Add a link to the "Comments" section in the navbar.
-3. **GitHub Push**: Commit and push the changes to trigger deployment.
+1. **Design Strategy**: Replace the Hyundai car content with an AI upload hero section.
+2. **Implementation - HTML**: Update index.html to include TensorFlow.js and Teachable Machine scripts. Add upload container.
+3. **Implementation - CSS**: Style the upload area and results display.
+4. **Implementation - JS**: Integrate Teachable Machine logic to handle image input and show predictions.
+5. **Finalization**: Commit and push to GitHub.
 
 ### Status
 - [x] GitHub Remote Added
-- [x] Hyundai Brand Design Applied
-- [x] Category Navigation Implemented
-- [x] Video Functionality Integrated
-- [x] Partnership Form Added
-- [x] Disqus Comments Integrated
+- [x] Partnership Form Maintained
+- [x] Disqus Comments Maintained
+- [ ] Teachable Machine Model Integrated
+- [ ] AI UI Implemented

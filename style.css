@@ -1,11 +1,10 @@
 :root {
-    --hyundai-blue: #002c5f;
-    --hyundai-light-blue: #00aad2;
-    --hyundai-sand: #e4dcd3;
-    --text-dark: #1c1c1c;
-    --text-light: #f4f4f4;
+    --primary-color: #6c5ce7;
+    --secondary-color: #a29bfe;
+    --text-dark: #2d3436;
+    --text-light: #f9f9f9;
     --bg-white: #ffffff;
-    --bg-gray: #f8f9fa;
+    --bg-gray: #f1f2f6;
     --card-shadow: 0 10px 30px rgba(0,0,0,0.1);
     --transition: all 0.3s ease;
 }
@@ -47,9 +46,8 @@ body {
 
 .logo {
     font-weight: 700;
-    font-size: 1.2rem;
-    color: var(--hyundai-blue);
-    letter-spacing: 1px;
+    font-size: 1.5rem;
+    color: var(--primary-color);
 }
 
 .logo span {
@@ -74,54 +72,120 @@ body {
 }
 
 .nav-links a:hover {
-    color: var(--hyundai-light-blue);
+    color: var(--primary-color);
 }
 
-/* Hero Section */
+/* Hero & Upload */
 .hero {
-    height: 80vh;
-    background: linear-gradient(rgba(0,44,95,0.7), rgba(0,44,95,0.7)), url('https://images.unsplash.com/photo-1542362567-b058c02b9ac1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-    background-size: cover;
-    background-position: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--bg-gray) 0%, #dfe6e9 100%);
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: white;
-    margin-top: 60px;
+    padding-top: 100px;
 }
 
 .hero-content h1 {
-    font-size: 3.5rem;
-    margin-bottom: 20px;
-    font-weight: 700;
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: var(--primary-color);
 }
 
 .hero-content p {
     font-size: 1.2rem;
-    margin-bottom: 30px;
-    opacity: 0.9;
+    margin-bottom: 40px;
+    color: #636e72;
+}
+
+.upload-container {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: var(--card-shadow);
+    max-width: 500px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.upload-area {
+    border: 3px dashed var(--secondary-color);
+    border-radius: 15px;
+    padding: 40px;
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+    min-height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.upload-area:hover {
+    background: rgba(162, 155, 254, 0.1);
+}
+
+.upload-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+#preview-image {
+    max-width: 100%;
+    max-height: 300px;
+    border-radius: 10px;
+}
+
+/* Results */
+#result-container {
+    margin-top: 30px;
+}
+
+.bar-container {
+    height: 25px;
+    background: #eee;
+    border-radius: 12px;
+    margin: 10px 0 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.bar {
+    height: 100%;
+    background: var(--primary-color);
+    transition: width 1s ease-in-out;
+}
+
+.label-text {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+}
+
+.btn-primary, .btn-secondary {
+    padding: 12px 30px;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+    border: none;
+    margin-top: 10px;
 }
 
 .btn-primary {
-    display: inline-block;
-    padding: 15px 40px;
-    background-color: var(--hyundai-light-blue);
+    background: var(--primary-color);
     color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: 700;
-    transition: var(--transition);
 }
 
-.btn-primary:hover {
-    background-color: #008eb0;
-    transform: translateY(-3px);
+.btn-secondary {
+    background: var(--bg-gray);
+    color: var(--text-dark);
 }
 
 /* Category Sections */
 .category-section {
-    padding: 100px 0;
+    padding: 80px 0;
 }
 
 .dark-bg {
@@ -129,91 +193,12 @@ body {
 }
 
 .section-title {
-    font-size: 2.5rem;
-    color: var(--hyundai-blue);
+    font-size: 2.2rem;
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 40px;
+    color: var(--text-dark);
 }
 
-.section-desc {
-    text-align: center;
-    margin-bottom: 60px;
-    color: #666;
-    font-size: 1.1rem;
-}
-
-/* Parts Grid */
-.parts-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-    gap: 40px;
-}
-
-.part-card {
-    background: white;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: var(--card-shadow);
-    transition: var(--transition);
-}
-
-.part-card:hover {
-    transform: translateY(-10px);
-}
-
-.part-info {
-    padding: 30px;
-}
-
-.part-info h3 {
-    color: var(--hyundai-blue);
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-}
-
-.part-info p {
-    margin-bottom: 20px;
-    color: #444;
-}
-
-.video-container {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-    height: 0;
-    overflow: hidden;
-    border-radius: 10px;
-    background: #000;
-}
-
-.video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-/* Footer */
-footer {
-    padding: 50px 0;
-    background-color: var(--hyundai-blue);
-    color: white;
-    text-align: center;
-}
-
-@media (max-width: 768px) {
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
-    .parts-grid {
-        grid-template-columns: 1fr;
-    }
-    .nav-links {
-        display: none;
-    }
-}
-
-/* Partnership Form */
 .form-container {
     max-width: 600px;
     margin: 0 auto;
@@ -225,38 +210,35 @@ footer {
 
 .contact-form .form-group {
     margin-bottom: 20px;
+    text-align: left;
 }
 
 .contact-form label {
     display: block;
     margin-bottom: 8px;
     font-weight: 700;
-    color: var(--hyundai-blue);
 }
 
-.contact-form input,
-.contact-form select,
-.contact-form textarea {
+.contact-form input, .contact-form textarea {
     width: 100%;
-    padding: 12px 15px;
+    padding: 12px;
     border: 1px solid #ddd;
-    border-radius: 5px;
-    font-family: inherit;
-    font-size: 1rem;
-    transition: var(--transition);
-}
-
-.contact-form input:focus,
-.contact-form select:focus,
-.contact-form textarea:focus {
-    outline: none;
-    border-color: var(--hyundai-light-blue);
-    box-shadow: 0 0 0 3px rgba(0, 170, 210, 0.1);
+    border-radius: 8px;
 }
 
 .w-100 {
     width: 100%;
-    cursor: pointer;
-    border: none;
-    font-size: 1.1rem;
+}
+
+footer {
+    padding: 40px 0;
+    background: var(--text-dark);
+    color: white;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
 }

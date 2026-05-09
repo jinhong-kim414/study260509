@@ -3,123 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hyundai Tech Academy | 자동차 부품 학습 센터</title>
+    <title>AI 상 테스트 | 강아지상 vs 고양이상</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- TensorFlow.js and Teachable Machine -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
 </head>
 <body>
     <header>
         <nav class="navbar">
-            <div class="logo">HYUNDAI <span>TECH ACADEMY</span></div>
+            <div class="logo">AI <span>FACE TEST</span></div>
             <ul class="nav-links">
-                <li><a href="#electronics">전장품</a></li>
-                <li><a href="#braking">제동부품</a></li>
-                <li><a href="#powertrain">파워트레인</a></li>
-                <li><a href="#chassis">샤시</a></li>
-                            <li><a href="#partnership">제휴문의</a></li>
-                            <li><a href="#comments">커뮤니티</a></li>
+                <li><a href="#test">테스트하기</a></li>
+                <li><a href="#partnership">제휴문의</a></li>
+                <li><a href="#comments">커뮤니티</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section class="hero">
+        <section id="test" class="hero">
             <div class="hero-content">
-                <h1>현대자동차 기술의 정수,<br>부품으로 이해하다</h1>
-                <p>가장 혁신적인 이동 수단을 만드는 부품들의 원리와 기능을 상세히 알아보세요.</p>
-                <a href="#electronics" class="btn-primary">학습 시작하기</a>
-            </div>
-        </section>
-
-        <section id="electronics" class="category-section">
-            <div class="container">
-                <h2 class="section-title">전장품 (Electronics)</h2>
-                <p class="section-desc">미래 모빌리티의 핵심, 현대자동차의 지능형 전자 제어 시스템</p>
-                <div class="parts-grid">
-                    <div class="part-card">
-                        <div class="part-image-placeholder">PE System</div>
-                        <div class="part-info">
-                            <h3>PE 시스템 (Power Electric)</h3>
-                            <p>전기차의 심장. 모터, 감속기, 인버터가 일체화된 현대차 고유의 구동 시스템입니다.</p>
-                            <div class="video-container">
-                                <iframe src="https://www.youtube.com/embed/p1oat7T_uS0" title="Hyundai E-GMP PE System" frameborder="0" allowfullscreen></iframe>
-                            </div>
+                <h1>나는 강아지상일까,<br>고양이상일까?</h1>
+                <p>인공지능이 분석하는 나의 얼굴상 테스트</p>
+                
+                <div class="upload-container">
+                    <div id="upload-area" class="upload-area">
+                        <img id="preview-image" src="" alt="Preview" style="display: none;">
+                        <div id="upload-label">
+                            <span class="upload-icon">📷</span>
+                            <p>사진을 업로드하거나 드래그하세요</p>
                         </div>
                     </div>
-                    <div class="part-card">
-                        <div class="part-info">
-                            <h3>V2L (Vehicle to Load)</h3>
-                            <p>차량 내부의 전력을 외부로 공급하는 기술로, 이동하는 에너지 저장 장치 역할을 합니다.</p>
-                            <div class="video-container">
-                                <iframe src="https://www.youtube.com/embed/5T2k9aP_L-8" title="Hyundai V2L" frameborder="0" allowfullscreen></iframe>
-                            </div>
-                        </div>
+                    <input type="file" id="image-input" accept="image/*" style="display: none;">
+                    
+                    <div id="loading-spinner" style="display: none;">분석 중...</div>
+                    <div id="result-container" style="display: none;">
+                        <h2 id="result-message">분석 완료!</h2>
+                        <div id="label-container"></div>
+                        <button onclick="location.reload()" class="btn-secondary">다시 하기</button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="braking" class="category-section dark-bg">
-            <div class="container">
-                <h2 class="section-title">제동부품 (Braking)</h2>
-                <p class="section-desc">안전을 책임지는 현대자동차의 정밀 제동 기술</p>
-                <div class="parts-grid">
-                    <div class="part-card">
-                        <div class="part-info">
-                            <h3>회생제동 시스템</h3>
-                            <p>감속 시 발생하는 에너지를 전기에너지로 변환하여 배터리를 충전하는 친환경 기술입니다.</p>
-                            <div class="video-container">
-                                <iframe src="https://www.youtube.com/embed/nU6O5f992zY" title="Regenerative Braking Explain" frameborder="0" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="part-card">
-                        <div class="part-info">
-                            <h3>IBAU (Integrated Brake Actuation Unit)</h3>
-                            <p>유압 발생 및 제어 기능을 하나로 통합하여 빠른 응답성과 안정적인 제동을 실현합니다.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
         <section id="partnership" class="category-section">
             <div class="container">
                 <h2 class="section-title">제휴 문의 (Partnership)</h2>
-                <p class="section-desc">현대 테크 아카데미와 함께할 파트너를 기다립니다.</p>
+                <p class="section-desc">AI 페이스 테스트와 함께할 파트너를 기다립니다.</p>
                 <div class="form-container">
                     <form action="https://formspree.io/f/xjglajpn" method="POST" class="contact-form">
                         <div class="form-group">
                             <label for="name">성함 / 업체명</label>
-                            <input type="text" id="name" name="name" required placeholder="예: 홍길동 / (주)현대모비스">
+                            <input type="text" id="name" name="name" required placeholder="예: 홍길동">
                         </div>
                         <div class="form-group">
                             <label for="email">이메일 주소</label>
                             <input type="email" id="email" name="_replyto" required placeholder="example@domain.com">
                         </div>
                         <div class="form-group">
-                            <label for="category">문의 분야</label>
-                            <select id="category" name="category">
-                                <option value="education">교육 컨텐츠 제휴</option>
-                                <option value="technical">기술 협력</option>
-                                <option value="marketing">마케팅/홍보</option>
-                                <option value="other">기타</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
                             <label for="message">문의 내용</label>
-                            <textarea id="message" name="message" rows="5" required placeholder="문의하실 내용을 상세히 적어주세요."></textarea>
+                            <textarea id="message" name="message" rows="5" required placeholder="내용을 입력해주세요."></textarea>
                         </div>
                         <button type="submit" class="btn-primary w-100">문의하기</button>
                     </form>
                 </div>
             </div>
         </section>
+
         <section id="comments" class="category-section dark-bg">
             <div class="container">
                 <h2 class="section-title">커뮤니티 (Comments)</h2>
-                <p class="section-desc">현대 테크 아카데미에 대한 의견을 자유롭게 남겨주세요.</p>
                 <div id="disqus_thread"></div>
                 <script>
                     (function() { 
@@ -129,14 +86,13 @@
                     (d.head || d.body).appendChild(s);
                     })();
                 </script>
-                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
             </div>
         </section>
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 Hyundai Tech Academy. Created by Gemini CLI.</p>
+            <p>&copy; 2026 AI Face Test. Created by Gemini CLI.</p>
         </div>
     </footer>
 
