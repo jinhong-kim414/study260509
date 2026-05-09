@@ -1,23 +1,19 @@
-// 1. 공용 강아지/고양이 분류 모델 URL (공식 예제 모델 등 작동 확인된 URL 사용)
-// 사용자가 제공한 URL이 있다면 이 부분을 해당 URL로 변경해 주세요.
-const URL = "https://teachablemachine.withgoogle.com/models/6qZqQ-YkS/"; 
+// Teachable Machine Model URL
+// 사용자가 제공한 정확한 모델 URL을 사용합니다.
+const URL = "https://teachablemachine.withgoogle.com/models/xjglajpn/"; 
 
 let model, maxPredictions;
 let isModelLoading = false;
 
-// 모델 로드 함수 개선
+// 모델 로드 함수
 async function loadModel() {
-    const loadingStatus = document.getElementById('loading-spinner');
-    const uploadLabel = document.getElementById('upload-label');
-    
     try {
         isModelLoading = true;
-        console.log("AI 모델 로딩 시작...");
+        console.log("AI 모델 로딩 중: " + URL);
         
         const modelURL = URL + "model.json";
         const metadataURL = URL + "metadata.json";
         
-        // tmImage.load는 시간이 걸릴 수 있으므로 비동기로 처리
         model = await tmImage.load(modelURL, metadataURL);
         maxPredictions = model.getTotalClasses();
         
@@ -26,12 +22,11 @@ async function loadModel() {
     } catch (e) {
         console.error("모델 로딩 실패:", e);
         isModelLoading = false;
-        alert("AI 모델을 불러오는데 실패했습니다. URL을 확인하거나 잠시 후 다시 시도해주세요.");
     }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 페이지 로드와 동시에 모델 로딩 시작
+    // 즉시 모델 로딩 시작
     loadModel();
 
     const uploadArea = document.getElementById('upload-area');
@@ -55,11 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 uploadLabel.style.display = 'none';
                 analyzeBtn.style.display = 'block';
                 resultContainer.style.display = 'none';
-                
-                // 사진 업로드 후 버튼으로 스크롤
-                setTimeout(() => {
-                    analyzeBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }, 100);
             };
             reader.readAsDataURL(file);
         }
@@ -67,62 +57,57 @@ document.addEventListener('DOMContentLoaded', () => {
 
     analyzeBtn.addEventListener('click', async () => {
         if (isModelLoading) {
-            alert("AI 모델을 아직 불러오는 중입니다. 잠시만 더 기다려주세요.");
+            alert("모델을 불러오는 중입니다. 잠시만 기다려주세요.");
             return;
         }
 
         if (!model) {
-            // 모델 로딩 재시도
             await loadModel();
-            if(!model) return;
+            if (!model) {
+                alert("모델 로드에 실패했습니다. URL(https://teachablemachine.withgoogle.com/models/xjglajpn/)이 유효한지 확인해주세요.");
+                return;
+            }
         }
 
         analyzeBtn.style.display = 'none';
         loadingSpinner.style.display = 'block';
 
-        // 분석 실행 (브라우저 렌더링을 위해 약간의 지연 후 실행)
+        // 분석 실행
         setTimeout(async () => {
             try {
-                await predict();
+                const prediction = await model.predict(previewImage);
+                labelContainerResult.innerHTML = '';
+                
+                const sortedPrediction = [...prediction].sort((a, b) => b.probability - a.probability);
+                const topResult = sortedPrediction[0].className;
+                
+                document.getElementById('result-message').innerText = "결과: " + topResult + "상!";
+
+                for (let i = 0; i < maxPredictions; i++) {
+                    const classPrediction = prediction[i].className;
+                    const probability = (prediction[i].probability * 100).toFixed(0);
+                    
+                    const resultItem = document.createElement('div');
+                    resultItem.className = 'result-item';
+                    resultItem.innerHTML = 
+                        '<div class="label-text">' +
+                            '<span>' + classPrediction + '</span>' +
+                            '<span>' + probability + '%</span>' +
+                        '</div>' +
+                        '<div class="bar-container">' +
+                            '<div class="bar" style="width: ' + probability + '%"></div>' +
+                        '</div>';
+                    labelContainerResult.appendChild(resultItem);
+                }
+                
                 loadingSpinner.style.display = 'none';
                 resultContainer.style.display = 'block';
-                resultContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
             } catch (error) {
                 console.error("분석 오류:", error);
                 alert("분석 중 오류가 발생했습니다.");
                 loadingSpinner.style.display = 'none';
                 analyzeBtn.style.display = 'block';
             }
-        }, 200);
+        }, 300);
     });
-
-    async function predict() {
-        // 이미지를 캔버스 등으로 변환하지 않고 바로 예측 (속도 우선)
-        const prediction = await model.predict(previewImage);
-        labelContainerResult.innerHTML = '';
-        
-        // 확률순 정렬
-        const sortedPrediction = [...prediction].sort((a, b) => b.probability - a.probability);
-        const topResult = sortedPrediction[0].className;
-        
-        // 결과 메시지 업데이트
-        document.getElementById('result-message').innerText = "결과: " + topResult + "상!";
-
-        for (let i = 0; i < maxPredictions; i++) {
-            const classPrediction = prediction[i].className;
-            const probability = (prediction[i].probability * 100).toFixed(0);
-            
-            const resultItem = document.createElement('div');
-            resultItem.className = 'result-item';
-            resultItem.innerHTML = 
-                '<div class="label-text">' +
-                    '<span>' + classPrediction + '</span>' +
-                    '<span>' + probability + '%</span>' +
-                '</div>' +
-                '<div class="bar-container">' +
-                    '<div class="bar" style="width: ' + probability + '%"></div>' +
-                '</div>';
-            labelContainerResult.appendChild(resultItem);
-        }
-    }
 });
