@@ -33,5 +33,5 @@ An interactive web application that uses a Teachable Machine AI model to classif
 - [x] AI UI Implemented
 - [x] "김진홍 천재" text added
 - [x] Text changed to "나는 어떤 상일까요?"
-- [ ] Changes committed and pushed
-- [ ] GitHub Pages Deployment confirmed
+- [x] Changes committed and pushed
+- [x] GitHub Pages Deployment confirmed (Pushed to main)
