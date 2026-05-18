@@ -19,17 +19,20 @@ An interactive web application that uses a Teachable Machine AI model to classif
 - Formspree for partnership.
 - Disqus for comments.
 
-## Current Task: Pivot to AI Classifier
+## Current Task: Content Update & Deployment
 ### Plan & Steps
-1. **Design Strategy**: Replace the Hyundai car content with an AI upload hero section.
-2. **Implementation - HTML**: Update index.html to include TensorFlow.js and Teachable Machine scripts. Add upload container.
-3. **Implementation - CSS**: Style the upload area and results display.
-4. **Implementation - JS**: Integrate Teachable Machine logic to handle image input and show predictions.
-5. **Finalization**: Commit and push to GitHub.
+1. **Implementation - HTML**: Add "김진홍 천재" text to the hero section.
+2. **Implementation - CSS**: Style the new text for visibility.
+3. **Version Control**: Commit all changes to the local repository.
+4. **Deployment**: Set up GitHub Pages for automatic deployment.
+5. **Finalization**: Push to the remote repository.
 
 ### Status
 - [x] GitHub Remote Added
 - [x] Partnership Form Maintained
 - [x] Disqus Comments Maintained
-- [ ] Teachable Machine Model Integrated
-- [ ] AI UI Implemented
+- [x] Teachable Machine Model Integrated
+- [x] AI UI Implemented
+- [ ] "김진홍 천재" text added
+- [ ] Changes committed and pushed
+- [ ] GitHub Pages Deployment configured
