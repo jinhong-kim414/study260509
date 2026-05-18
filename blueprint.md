@@ -19,13 +19,11 @@ An interactive web application that uses a Teachable Machine AI model to classif
 - Formspree for partnership.
 - Disqus for comments.
 
-## Current Task: Content Update & Deployment
+## Current Task: Text Update & Deployment
 ### Plan & Steps
-1. **Implementation - HTML**: Add "김진홍 천재" text to the hero section.
-2. **Implementation - CSS**: Style the new text for visibility.
-3. **Version Control**: Commit all changes to the local repository.
-4. **Deployment**: Set up GitHub Pages for automatic deployment.
-5. **Finalization**: Push to the remote repository.
+1. **Implementation - HTML**: Change "나는 어떤 상일까?" to "나는 어떤 상일까요?".
+2. **Version Control**: Commit all changes to the local repository.
+3. **Deployment**: Push to the remote repository (GitHub) to trigger deployment.
 
 ### Status
 - [x] GitHub Remote Added
@@ -33,6 +31,7 @@ An interactive web application that uses a Teachable Machine AI model to classif
 - [x] Disqus Comments Maintained
 - [x] Teachable Machine Model Integrated
 - [x] AI UI Implemented
-- [ ] "김진홍 천재" text added
+- [x] "김진홍 천재" text added
+- [x] Text changed to "나는 어떤 상일까요?"
 - [ ] Changes committed and pushed
-- [ ] GitHub Pages Deployment configured
+- [ ] GitHub Pages Deployment confirmed
