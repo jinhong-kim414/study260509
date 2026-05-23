@@ -97,6 +97,13 @@ body {
     margin-bottom: 30px;
 }
 
+.hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 25px;
+}
+
 .genius-tag {
     font-weight: 700;
     color: var(--primary-color);
@@ -104,8 +111,12 @@ body {
     display: inline-block;
     padding: 5px 15px;
     border-radius: 20px;
-    margin-bottom: 25px;
     font-size: 0.9rem;
+}
+
+.genius-tag.muted {
+    color: #d63031;
+    background: rgba(214, 48, 49, 0.1);
 }
 
 /* Upload Area */
