@@ -97,12 +97,16 @@ body {
     font-weight: 700;
 }
 
-.theme-toggle {
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.theme-toggle,
+.icon-button {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    min-width: 86px;
-    min-height: 36px;
     justify-content: center;
     border: 1px solid var(--border-color);
     border-radius: 18px;
@@ -115,13 +119,36 @@ body {
     transition: var(--transition);
 }
 
-.theme-toggle:hover {
+.theme-toggle {
+    gap: 6px;
+    min-width: 86px;
+    min-height: 36px;
+}
+
+.icon-button {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+}
+
+.theme-toggle:hover,
+.icon-button:hover {
     border-color: var(--primary-color);
     color: var(--primary-color);
+    transform: translateY(-1px);
 }
 
 .theme-icon {
     line-height: 1;
+}
+
+.fireworks-canvas {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 2000;
 }
 
 /* Hero Section */
@@ -351,9 +378,14 @@ footer {
     .upload-container { padding: 16px; }
     .nav-links { gap: 10px; }
     .navbar { padding: 12px 4%; }
+    .nav-actions { gap: 6px; }
     .theme-toggle {
         min-width: 42px;
         padding: 0 10px;
+    }
+    .icon-button {
+        width: 34px;
+        height: 34px;
     }
     .theme-label { display: none; }
 }
