@@ -5,6 +5,35 @@ const URL = "https://teachablemachine.withgoogle.com/models/cryxcLDN-/";
 let model, maxPredictions;
 let isModelLoading = false;
 
+
+function applyTheme(theme) {
+    const isDark = theme === 'dark';
+    document.body.classList.toggle('dark-mode', isDark);
+
+    const themeToggle = document.getElementById('theme-toggle');
+    if (!themeToggle) return;
+
+    themeToggle.setAttribute('aria-pressed', String(isDark));
+    themeToggle.setAttribute('aria-label', isDark ? '화이트모드로 전환' : '블랙모드로 전환');
+    themeToggle.querySelector('.theme-icon').textContent = isDark ? '☾' : '☀';
+    themeToggle.querySelector('.theme-label').textContent = isDark ? '블랙' : '화이트';
+}
+
+function initThemeToggle() {
+    const themeToggle = document.getElementById('theme-toggle');
+    const savedTheme = localStorage.getItem('theme-mode') || 'light';
+
+    applyTheme(savedTheme);
+
+    if (!themeToggle) return;
+
+    themeToggle.addEventListener('click', () => {
+        const nextTheme = document.body.classList.contains('dark-mode') ? 'light' : 'dark';
+        localStorage.setItem('theme-mode', nextTheme);
+        applyTheme(nextTheme);
+    });
+}
+
 // 모델 로드 함수
 async function loadModel() {
     try {
@@ -26,6 +55,8 @@ async function loadModel() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    initThemeToggle();
+
     // 즉시 모델 로딩 시작
     loadModel();
 
